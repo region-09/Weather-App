@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+</head>
+<body>
+    <h1>Погода</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" value="" width="200" height="80" name="city">
+        <button type="submit">Искать</button>
+    </form>
+    {% if city %}
+    <h3>Данные о погоде {{city}}</h3>
+        <h3>Цельсий: {{temperature}} </h3>
+        <h3>Давления: {{pressure}} мм рт.ст</h3>
+        <h3>Скорость ветра: {{wind_speed}} м/с</h3>
+    {% endif %}
+    {% if error %}
+        <h3>{{error}}</h3>
+    {% endif %}
+</body>
+</html>
